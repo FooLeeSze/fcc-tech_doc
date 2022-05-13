@@ -1,0 +1,200 @@
+/*********
+* Global *
+*********/
+@import url('https://fonts.googleapis.com/css2?family=Courier+Prime&family=Roboto:wght@400;500;700&display=swap');
+
+:root {
+    --dark-bg: black;
+    --light-bg: white;
+    --accent-color: #046E8F;
+    --gray: rgb(231, 231, 231);
+    --css-selector-color: rgb(196, 0, 0);
+    --css-property-color: #a50098;
+    --hover-color:rgb(164, 202, 215);
+}
+
+html {
+    font-size: 10px;
+}
+
+body, h1, h2, h3, section, p, code, ul, ol, li {
+    padding: 0;
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+code {
+    font-family: 'Courier Prime', monospace;
+}
+
+
+/**********
+* Nav Bar *
+**********/
+#navbar {
+    background-color:rgb(39, 39, 39);
+    color: white;
+    text-align: center;
+    
+}
+
+#navbar header {
+    font-size: 3rem;
+    padding: 1rem 0;
+    background-color: var(--dark-bg);
+}
+
+#nav-link-container {
+    padding-bottom: 1rem;
+    padding-top: 0.5rem;
+    height: 250px;
+    overflow-y: auto;
+}
+
+#navbar ul {
+    list-style-type: none;
+    font-size: 1.8rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    
+}
+
+#navbar li {
+    padding: 1rem 0;
+}
+
+#navbar a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    height: 100%;
+}
+
+#navbar a:hover {
+    background-color: var(--accent-color);
+}
+
+
+/***************
+* Main Section *
+***************/
+.main-section {
+    padding: 1.5rem 2.5rem;
+    font-size: 1.6rem;
+}
+
+.main-section header, p, h3, ul, .standalone-code {
+    margin-bottom: 1.2rem;
+}
+
+.main-section li {
+    margin-bottom: 0.8rem;
+}
+
+.main-section header {
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+.main-section p.subheader {
+    font-weight: 500;
+    padding-left: 1.5rem;
+    display: block;
+    font-size: 1.8rem;
+}
+
+.main-section p {
+    display: inline-block;
+}
+
+.main-section ul, .main-section ol {
+    padding-left: 3rem;
+}
+
+/********
+* Codes *
+********/
+.main-section code {
+    background-color: var(--gray);
+    padding: 0.1rem 0.5rem;
+    display: inline-block;
+}
+
+#main-doc .standalone-code {
+    margin-bottom: 1rem;
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+    padding-left: 1.5rem;
+    border-left: solid;
+    border-color: var(--accent-color);
+    border-width: 5px;
+    display: block;
+}
+
+.main-section .css-selector {
+    color: var(--css-selector-color);
+}
+
+.main-section .css-property {
+    color: var(--css-property-color);
+}
+
+
+/*********
+* Tables *
+*********/
+table {
+    width: 100%;
+    text-align: center;
+    margin-bottom: 1rem;
+    border-collapse: collapse;
+}
+
+table th {
+    background-color: var(--accent-color);
+    color: white;
+}
+
+table tr:hover {
+    background-color: var(--hover-color);
+}
+
+table td, table th {
+    border: 2px solid var(--gray);
+    padding: 0.2rem 0.8rem;
+}
+
+#rel-unit-table td:nth-child(even) {
+    text-align: left;
+}
+
+
+/**********
+* Desktop *
+**********/
+@media (min-width: 992px) {
+    /* Nav bar */
+    #navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        width: 320px;
+        text-align: left;  
+    }
+
+    #navbar header, #navbar a {
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+
+    #nav-link-container {
+        height: 100%;
+    }
+    
+    /* main section */
+    #main-doc {
+        margin-left: 320px;  
+    }
+}

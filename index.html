@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="style.css" rel="stylesheet">
+    <title>CSS Documentation Page</title>
+</head>
+<body>
+    <nav id="navbar">
+        <header>CSS Documentation</header>
+        <div id="nav-link-container">
+            <ul>
+                <li><a href="#Introduction" class="nav-link">Introduction</a></li>
+                <li><a href="#CSS_Syntax" class="nav-link">CSS Syntax</a></li>
+                <li><a href="#Adding_CSS_to_Your_Document" class="nav-link"> Adding CSS to Your Document</a></li>
+                <li><a href="#Styling_HTML_Elements" class="nav-link">Styling HTML Elements</a></li>
+                <li><a href="#CSS_Selectors" class="nav-link">CSS Selectors</a></li>
+                <li><a href="#The_Box_Model" class="nav-link">The Box Model</a></li>
+                <li><a href="#CSS_Values_and_Units" class="nav-link">CSS Values and Units</a></li>
+                <li><a href="#Debugging_CSS" class="nav-link">Debugging CSS</a></li>
+                <li><a href="#Reference" class="nav-link">Reference</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+
+    <main id="main-doc">
+        <section class="main-section" id="Introduction">
+            <header class="main-header">Introduction</header>
+            <article>
+                <p>CSS is a language for specifying how documents are presented to users — how they are styled, laid out, etc.</p>
+                <p>A document is usually a text file structured using a markup language — HTML is the most common markup language, but you may also come across other markup languages such as SVG or XML.</p>
+                <p>Presenting a document to a user means converting it into a form usable by your audience. Browsers, like Firefox, Chrome, or Edge , are designed to present documents visually, for example, on a computer screen, projector, or printer.</p>
+                <p>CSS can be used for very basic document text styling — for example, for changing the color and size of headings and links. It can be used to create a layout — for example, turning a single column of text into a layout with a main content area and a sidebar for related information. It can even be used for effects such as animation.</p>
+            </article>
+        </section>
+
+        <section class="main-section" id="CSS_Syntax">
+            <header>CSS Syntax</header>
+            <article>
+                <p>CSS is a rule-based language — you define the rules by specifying groups of styles that should be applied to particular elements or groups of elements on your web page.</p>
+                <p>For example, you can decide to have the main heading on your page to be shown as large red text. The following code shows a very simple CSS rule that would achieve the styling described above:</p>
+                <code class="standalone-code"><span class="css-selector">h1</span> {<br>&nbsp;&nbsp;<span class="css-property">color</span>: red;<br>&nbsp;&nbsp;<span class="css-property">font-size</span>: 5em;<br>}</code>
+                <ul>
+                    <li>In the above example, the CSS rule opens with a selector . This selects the HTML element that we are going to style. In this case, we are styling level one headings (<code class="in-text-code">&lth1&gt</code>).</li>
+                    <li>We then have a set of curly braces <code class="in-text-code">{ }</code>.</li>
+                    <li>Inside the braces will be one or more declarations, which take the form of property and value pairs. We specify the property (<code class="in-text-code">color</code> in the above example) before the colon, and we specify the value of the property after the colon (<code class="in-text-code">red</code> in this example).</li>
+                    <li>This example contains two declarations, one for <code class="in-text-code">red</code> and the other for font-size. Each pair specifies a property of the element(s) we are selecting (<code class="in-text-code">&lth1&gt</code> in this case), then a value that we'd like to give the property.</li>
+                </ul>
+                <p>CSS properties have different allowable values, depending on which property is being specified. In our example, we have the <code class="in-text-code">color</code> property, which can take various color values. We also have the <code class="in-text-code">font-size</code> property. This property can take various size units as a value.</p>
+                <p>A CSS stylesheet will contain many such rules, written one after the other.</p>
+                <code class="standalone-code"><span class="css-selector">h1</span> {<br>&nbsp;&nbsp;<span class="css-property">color</span>: red;<br>&nbsp;&nbsp;<span class="css-property">font-size</span>: 5em; <br>}<br><br><span class="css-selector">p</span> { <br>&nbsp;&nbsp;<span class="css-property">color</span>: black; <br>}</code>
+            </article>
+        </section>
+
+        <section class="main-section" id="Adding_CSS_to_Your_Document">
+            <header>Adding CSS to Your Document</header>
+            <article>
+                <p>The very first thing we need to do is to tell the HTML document that we have some CSS rules we want it to use. There are three different ways to apply CSS to an HTML document that you'll commonly come across, however, for now, we will look at the most usual and useful way of doing so — linking CSS from the head of your document.</p>
+                <p>Create a file in the same folder as your HTML document and save it as <code class="in-text-code">styles.css</code>. The <code class="in-text-code">.css</code> extension shows that this is a CSS file.</p>
+                <p>To link <code class="in-text-code">styles.css</code> to <code class="in-text-code">index.html</code>, add the following line somewhere inside the <code class="in-text-code">&lthead&gtcc;</code> of the HTML document:</p>
+                <code class="standalone-code">&ltlink rel="stylesheet" href="styles.css"&gt</code>
+                <p>This <code class="in-text-code">&ltlink&gt</code> element tells the browser that we have a stylesheet, using the <code class="in-text-code">rel</code> attribute, and the location of that stylesheet as the value of the <code class="in-text-code">href</code> attribute.</p>
+            </article>
+        </section>
+
+        <section class="main-section" id="Styling_HTML_Elements">
+            <header>Styling HTML Elements</header>
+            <article>
+                <p>We have already demonstrated that we can target and style an HTML element. We do this by targeting an element selector — this is a selector that directly matches an HTML element name. To target all paragraphs in the document, you would use the selector <code class="in-text-code">p</code>. To turn all paragraphs green, you would use:</p>  
+                <code class="standalone-code"><span class="css-selector">p</span> { <br>&nbsp;&nbsp;<span class="css-property">color</span>: green; <br>}</code>
+                <p>You can target multiple selectors at the same time by separating the selectors with a comma. If you want all paragraphs and all list items to be green, your rule would look like this:</p>
+                <code class="standalone-code"><span class="css-selector">p</span>, <span class="css-selector">li</span> { <br>&nbsp;&nbsp;<span class="css-property">color</span>: green; <br>}</code>
+            </article>
+        </section>
+
+        <section class="main-section" id="CSS_Selectors">
+            <header>CSS Selectors</header>
+            <article>
+                <p>In CSS, selectors are used to target the HTML elements on our web pages that we want to style. There are a wide variety of CSS selectors available, allowing for fine-grained precision when selecting elements to style. In this article and its sub-articles we'll run through the different types in great detail, seeing how they work.</p>
+                <p>A CSS selector is the first part of a CSS Rule. It is a pattern of elements and other terms that tell the browser which HTML elements should be selected to have the CSS property values inside the rule applied to them. The element or elements which are selected by the selector are referred to as the subject of the selector.</p>
+                <p>There are a few different groupings of selectors, and knowing which type of selector you might need will help you to find the right tool for the job. In this article's article we will look at the different groups of selectors in more detail.</p>
+
+                <p class="subheader">Type, class, and ID selectors</p>
+                <p>This group includes selectors that target an HTML element such as an <code class="in-text-code">&lth1&gt</code></p>
+                <code class="standalone-code"><span class="css-selector">h1</span> { }</code>
+                <p>It also includes selectors which target a class.</p>
+                <code class="standalone-code"><span class="css-selector">.box</span> { }</code>
+                <p>or, an ID:</p>
+                <code class="standalone-code"><span class="css-selector">#unique</span> { }</code>
+                
+                <p class="subheader">Attribute selectors</p>
+                <p>This group of selectors gives you different ways to select elements based on the presence of a certain attribute on an element:</p>
+                <code class="standalone-code"><span class="css-selector">a[title]</span> { }</code>
+                <p>Or even make a selection based on the presence of an attribute with a particular value:</p>
+                <code class="standalone-code">a<span class="css-selector">[href="https://example.com"]</span> { }</code>
+
+                <p class="subheader">Pseudo-classes and pseudo-elements</p>
+                <p>This group of selectors includes pseudo-classes, which style certain states of an element. The <code class="in-text-code">:hover</code> pseudo-class for example selects an element only when it is being hovered over by the mouse pointer:</p>
+                <code class="standalone-code"><span class="css-selector">a:hover</span> { }</code>
+                <p>It also includes pseudo-elements, which select a certain part of an element rather than the element itself. For example, <code class="in-text-code">::first-line</code> always selects the first line of text inside an element (a <code class="in-text-code">&ltp&gt</code> in the below case), acting as if a <code class="in-text-code">&ltspan&gt</code> was wrapped around the first formatted line and then selected.</p>
+
+                <p class="subheader">Combinators</p>
+                <p>The final group of selectors combine other selectors in order to target elements within our documents. The following, for example, selects paragraphs that are direct children of <code class="in-text-code">&ltarticle&gt</code> elements using the child combinator (<code class="in-text-code">&gt</code>):</p>
+                <code class="standalone-code"><span class="css-selector">article &gt p</span> { }</code>
+            </article>
+        </section>
+
+        <section class="main-section" id="The_Box_Model">
+            <header>The Box Model</header>
+            <article>
+                <p>Everything in CSS has a box around it, and understanding these boxes is key to being able to create layouts with CSS, or to align items with other items. In this lesson, we will take a proper look at the CSS Box Model so that you can build more complex layout tasks with an understanding of how it works and the terminology that relates to it.</p>
+                <p>In CSS we broadly have two types of boxes — block boxes and inline boxes. These characteristics refer to how the box behaves in terms of page flow and in relation to other boxes on the page. Boxes also have an inner display type and an outer display type. First, we will explain what we mean by block box and inline box. We will then explain what is meant by an inner and outer display type.</p>
+                <p>If a box has an outer display type of <code class="in-text-code">block</code>, it will behave in the following ways:</p>
+                <ul>
+                    <li>The box will break onto a new line.</li>
+                    <li>The box will extend in the inline direction to fill the space available in its container. In most cases this means that the box will become as wide as its container, filling up 100% of the space available.</li>
+                    <li>The <code class="in-text-code">width</code> and <code class="in-text-code">height</code> properties are respected.</li>
+                    <li>Padding, margin and border will cause other elements to be pushed away from the box.</li>
+                </ul>
+                <p>Some HTML elements, such as <code class="in-text-code">&lth1&gt</code> and <code class="in-text-code">&ltp&gt</code>, use <code class="in-text-code">block</code> as their outer display type by default.</p>
+                <p>If a box has an outer display type of <code class="in-text-code">inline</code>, then:</p>
+                <ul>
+                    <li>The box will not break onto a new line.</li>
+                    <li>The <code class="in-text-code">width</code> and <code class="in-text-code">height</code> properties will not apply.</li>
+                    <li>Vertical padding, margins, and borders will apply but will not cause other inline boxes to move away from the box.</li>
+                    <li>Horizontal padding, margins, and borders will apply and will cause other inline boxes to move away from the box.</li>
+                </ul>
+                <p>Some HTML elements, such as <code class="in-text-code">&lta&gt</code>, <code class="in-text-code">&ltspan&gt</code>, <code class="in-text-code">&ltem&gt</code> and <code class="in-text-code">&ltstrong&gt</code> use <code class="in-text-code">inline</code> as their outer display type by default.</p>
+                <p>The type of box applied to an element is defined by <code class="in-text-code">display</code> property values such as <code class="in-text-code">block</code> and <code class="in-text-code">inline</code>, and relates to the outer value of <code class="in-text-code">display</code>.</p>
+
+            </article>
+        </section>
+
+        <section class="main-section" id="CSS_Values_and_Units">
+            <header>CSS Values and Units</header>
+            <article>
+                <p>Every property used in CSS has a value type defining the set of values that are allowed for that property. Taking a look at any property page on MDN will help you understand the values associated with a value type that are valid for any particular property. In this lesson we will take a look at some of the most frequently used value types, and their most common values and units.</p>
+                <p>In CSS specifications and on the property pages here on MDN you will be able to spot value types as they will be surrounded by angle brackets, such as <code class="in-text-code">&ltcolor&gt</code> or <code class="in-text-code">&ltlength&&gt</code>. When you see the value type <code class="in-text-code">&ltcolor&&gt</code> as valid for a particular property, that means you can use any valid color as value for that property.</p>
+                <p>n the following example, we have set the color of our heading using a keyword, and the background using the <code class="in-text-code">rgb()</code> function:</p>
+                <code class="standalone-code"><span class="css-selector">h1</span> { <br>&nbsp;&nbsp;<span class="css-property">color</span>: black; <br>&nbsp;&nbsp;<span class="css-property">background-color</span>: rgb(187, 93, 161); <br>}</code>
+                <p>A value type in CSS is a way to define a collection of allowable values. This means that if you see <code class="in-text-code">&ltcolor&gt</code> as valid you don't need to wonder which of the different types of color value can be used — keywords, hex values, <code class="in-text-code">&ltrgb()&gt</code> functions, etc. You can use any available <code class="in-text-code">&ltcolor&gt</code> values, assuming they are supported by your browser. The page on MDN for each value will give you information about browser support. For example, if you look at the page for <code class="in-text-code">&ltcolor&gt</code> you will see that the browser compatibility section lists different types of color values and support for them.</p>
+
+                <p class="subheader">Absolute Length Units</p>
+                <p>The following are all absolute length units — they are not relative to anything else, and are generally considered to always be the same size.</p>
+                <table id="abs-unit-table">
+                    <tr>
+                        <th>Unit</th>
+                        <th>Name</th>
+                    </tr>
+                    <tr>
+                        <td><code class="in-text-code">cm</code></td>
+                        <td>Centimeters</td>
+                    </tr>
+                    <tr>
+                        <td><code class="in-text-code">mm</code></td>
+                        <td>Millimeters</td>
+                    </tr>
+                    <tr>
+                        <td><code class="in-text-code">Q</code></td>
+                        <td>Quarter-millimeters</td>
+                    </tr>
+                    <tr>
+                        <td><code class="in-text-code">in</code></td>
+                        <td>Inches</td>
+                    </tr>
+                    <tr>
+                        <td><code class="in-text-code">pc</code></td>
+                        <td>Picas</td>
+                    </tr>
+                    <tr>
+                        <td><code class="in-text-code">pt</code></td>
+                        <td>Points</td>
+                    </tr>
+                    <tr>
+                        <td><code class="in-text-code">px</code></td>
+                        <td>Pixels</td>
+                    </tr>
+                </table>
+                <p>Most of these units are more useful when used for print, rather than screen output. For example, we don't typically use <code class="in-text-code">cm</code> (centimeters) on screen. The only value that you will commonly use is <code class="in-text-code">px</code> (pixels)</p>
+
+                <p class="subheader">Relative Length Units</p>
+                <p>Relative length units are relative to something else, perhaps the size of the parent element's font, or the size of the viewport. The benefit of using relative units is that with some careful planning you can make it so the size of text or other elements scales relative to everything else on the page. Some of the most useful units for web development are listed in the table below.</p>
+                <table id="rel-unit-table">
+                    <tr>
+                        <th>Unit</th>
+                        <th>Relative to</th>
+                    </tr>
+                    <tr>
+                        <td><code class="in-text-code">em</code></td>
+                        <td>Font size of the parent, in the case of typographical properties like <code class="in-text-code">font-size</code>, and font size of the element itself, in the case of other properties like <code class="in-text-code">width</code>.</td>
+                    </tr>
+                    <tr>
+                        <td><code class="in-text-code">ex</code></td>
+                        <td>x-height of the element's font.</td>
+                    </tr>
+                    <tr>
+                        <td><code class="in-text-code">ch</code></td>
+                        <td>The advance measure (width) of the glyph "0" of the element's font.</td>
+                    </tr>
+                    <tr>
+                        <td><code class="in-text-code">rem</code></td>
+                        <td>Font size of the root element.</td>
+                    </tr>
+                    <tr>
+                        <td><code class="in-text-code">lh</code></td>
+                        <td>Line height of the element.</td>
+                    </tr>
+                    <tr>
+                        <td><code class="in-text-code">vw</code></td>
+                        <td>1% of the viewport's width.</td>
+                    </tr>
+                    <tr>
+                        <td><code class="in-text-code">vh</code></td>
+                        <td>1% of the viewport's height.</td>
+                    </tr>
+                    <tr>
+                        <td><code class="in-text-code">vmin</code></td>
+                        <td>1% of the viewport's smaller dimension.</td>
+                    </tr>
+                    <tr>
+                        <td><code class="in-text-code">vmax</code></td>
+                        <td>1% of the viewport's larger dimension.</td>
+                    </tr>
+
+                </table>
+            </article>
+        </section>
+
+        <section class="main-section" id="Debugging_CSS">
+            <header>Debugging CSS</header>
+            <article>
+                <p>DevTools can be a great help when solving CSS problems, so when you find yourself in a situation where CSS isn't behaving as you expect, how should you go about solving it? The following steps should help.</p>
+
+                <p class="subheader">Take a step back from the problem</p>
+                <p>Any coding problem can be frustrating, especially CSS problems because you often don't get an error message to search for online to help with finding a solution. If you are becoming frustrated, take a step away from the issue for a while — go for a walk, grab a drink, chat to a co-worker, or work on some other thing for a while. Sometimes the solution magically appears when you stop thinking about the problem, and even if not, working on it when feeling refreshed will be much easier.</p>
+
+                <p class="subheader">Do you have valid HTML and CSS?</p>
+                <p>Browsers expect your CSS and HTML to be correctly written, however browsers are also very forgiving and will try their best to display your webpages even if you have errors in the markup or stylesheet. If you have mistakes in your code the browser needs to make a guess at what you meant, and it might make a different decision to what you had in mind. In addition, two different browsers might cope with the problem in two different ways. A good first step, therefore, is to run your HTML and CSS through a validator, to pick up and fix any errors.</p>
+
+                <p class="subheader">Are the property and value supported by the browser you are testing in?</p>
+                <p>Browsers ignore CSS they don't understand. If the property or value you are using is not supported by the browser you are testing in then nothing will break, but that CSS won't be applied. DevTools will generally highlight unsupported properties and values in some way.</p>
+                <p>You can also take a look at the Browser compatibility tables at the bottom of each property page on MDN. These show you browser support for that property, often broken down if there is support for some usage of the property and not others.</p>
+
+                <p class="subheader">Is something else overriding your CSS?</p>
+                <p>This is where the information you have learned about specificity will come into much use. If you have something more specific overriding what you are trying to do, you can enter into a very frustrating game of trying to work out what. However, as described above, DevTools will show you what CSS is applying and you can work out how to make the new selector specific enough to override it.</p>
+
+                <p class="subheader">Make a reduced test case of the problem</p>
+                <p>If the issue isn't solved by the steps above, then you will need to do some more investigating. The best thing to do at this point is to create something known as a reduced test case. Being able to "reduce an issue" is a really useful skill. It will help you find problems in your own code and that of your colleagues, and will also enable you to report bugs and ask for help more effectively.</p>
+                <p>A reduced test case is a code example that demonstrates the problem in the simplest possible way, with unrelated surrounding content and styling removed. This will often mean taking the problematic code out of your layout to make a small example which only shows that code or feature.</p>
+                <p>To create a reduced test case:</p>
+                <ol>
+                    <li>If your markup is dynamically generated — for example via a CMS — make a static version of the output that shows the problem. A code sharing site like CodePen is useful for hosting reduced test cases, as then they are accessible online and you can easily share them with colleagues. You could start by doing View Source on the page and copying the HTML into CodePen, then grab any relevant CSS and JavaScript and include it too. After that, you can check whether the issue is still evident.</li>
+                    <li>If removing the JavaScript does not make the issue go away, don't include the JavaScript. If removing the JavaScript does make the issue go away, then remove as much JavaScript as you can, leaving in whatever causes the issue.</li>
+                    <li>Remove any HTML that does not contribute to the issue. Remove components or even main elements of the layout. Again, try to get down to the smallest amount of code that still shows the issue.</li>
+                    <li>Remove any CSS that doesn't impact the issue.</li>
+                </ol>
+                <p>In the process of doing this, you may discover what is causing the problem, or at least be able to turn it on and off by removing something specific. It is worth adding some comments to your code as you discover things. If you need to ask for help, they will show the person helping you what you have already tried. This may well give you enough information to be able to search for likely problems and workarounds.</p>
+                <p>If you are still struggling to fix the problem then having a reduced test case gives you something to ask for help with, by posting to a forum, or showing to a co-worker. You are much more likely to get help if you can show that you have done the work of reducing the problem and identifying exactly where it happens, before asking for help. A more experienced developer might be able to quickly spot the problem and point you in the right direction, and even if not, your reduced test case will enable them to have a quick look and hopefully be able to offer at least some help.</p>
+                <p>In the instance that your problem is actually a bug in a browser, then a reduced test case can also be used to file a bug report with the relevant browser vendor (e.g. on Mozilla's bugzilla site).</p>
+                <p>As you become more experienced with CSS, you will find that you get faster at figuring out issues. However, even the most experienced of us sometimes find ourselves wondering what on earth is going on. Taking a methodical approach, making a reduced test case, and explaining the issue to someone else will usually result in a fix being found.</p>
+
+            </article>
+        </section>
+
+        <section class="main-section" id="Reference">
+            <header>Reference</header>
+            <p>All the documentation in this page is taken from <a href="https://developer.mozilla.org/en-US/docs/Learn/CSS" target="_blank">MDN</a>.</p>
+        </section>
+
+    </main>
+    <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script>
+</body>
+</html>
