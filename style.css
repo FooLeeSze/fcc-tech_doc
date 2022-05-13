@@ -17,7 +17,7 @@ html {
     font-size: 10px;
 }
 
-body, h1, h2, h3, section, p, code, ul, ol, li {
+body, h1, h2, h3, section, p, code, ul, ol, li, a {
     padding: 0;
     margin: 0;
     font-family: 'Roboto', sans-serif;
@@ -40,8 +40,28 @@ code {
 
 #navbar header {
     font-size: 3rem;
-    padding: 1rem 0;
+    padding-top: 1rem;
+    padding-bottom: .5rem;
     background-color: var(--dark-bg);
+}
+
+#navbar address {
+    font-size: 1.6rem;
+    padding-bottom: 1.5rem;
+    background-color: var(--dark-bg);
+    text-align: center;
+    font-style: normal;
+}
+
+#navbar address a {
+    padding: 0;
+    margin: 0;
+    color: white;
+    text-decoration: none;
+}
+
+#navbar address i {
+    padding: 0 0.5rem;
 }
 
 #nav-link-container {
@@ -64,7 +84,7 @@ code {
     padding: 1rem 0;
 }
 
-#navbar a {
+#navbar ul a {
     color: white;
     text-decoration: none;
     display: block;
