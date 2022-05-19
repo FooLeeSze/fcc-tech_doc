@@ -150,6 +150,7 @@ code {
     border-color: var(--accent-color);
     border-width: 5px;
     display: block;
+    word-break: break-all;
 }
 
 .main-section .css-selector {
